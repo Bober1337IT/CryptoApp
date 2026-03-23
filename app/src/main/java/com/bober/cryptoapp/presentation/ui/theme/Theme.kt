@@ -1,6 +1,5 @@
-package com.bober.cryptoapp.ui.theme
+package com.bober.cryptoapp.presentation.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

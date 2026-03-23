@@ -1,4 +1,4 @@
-package com.bober.cryptoapp.ui.theme
+package com.bober.cryptoapp.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
