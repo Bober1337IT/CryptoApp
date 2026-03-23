@@ -6,9 +6,7 @@ plugins {
 
 android {
     namespace = "com.bober.cryptoapp"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.bober.cryptoapp"
@@ -57,4 +55,10 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    // GSON
+    implementation(libs.google.gson)
+    implementation(libs.retrofit.converter)
 }
