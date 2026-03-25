@@ -69,4 +69,7 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
     // Navigation
     implementation(libs.androidx.navigation.runtime.ktx)
+    // Mock
+    testImplementation(libs.mockk)
+    androidTestImplementation(libs.mockk.android)
 }
