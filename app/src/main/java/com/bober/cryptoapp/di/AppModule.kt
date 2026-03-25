@@ -3,6 +3,7 @@ package com.bober.cryptoapp.di
 import com.bober.cryptoapp.common.Constants
 import com.bober.cryptoapp.data.remote.CoinPaprikaApi
 import com.bober.cryptoapp.data.repository.CoinRepositoryImpl
+import com.bober.cryptoapp.data.repository.FakeCoinRepository
 import com.bober.cryptoapp.domain.repository.CoinRepository
 import dagger.Module
 import dagger.Provides
@@ -33,6 +34,7 @@ object AppModule {
     // Provides the Repository. We return the interface (CoinRepository)
     // but the actual implementation is CoinRepositoryImpl
     fun provideCoinRepository(api: CoinPaprikaApi): CoinRepository {
-        return CoinRepositoryImpl(api)
+        //return CoinRepositoryImpl(api)
+        return FakeCoinRepository()
     }
 }
