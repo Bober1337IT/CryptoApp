@@ -24,6 +24,8 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.bober.cryptoapp.common.smartRound
+import com.bober.cryptoapp.presentation.coin_detail.components.CoinPriceChange
 import com.bober.cryptoapp.presentation.coin_detail.components.CoinTag
 import com.bober.cryptoapp.presentation.coin_detail.components.TeamListItem
 
@@ -66,14 +68,51 @@ fun CoinDetailScreen(
                     )
                     Spacer(modifier = Modifier.height(15.dp))
                     Text(
+                        text = "Price change",
+                        style = MaterialTheme.typography.headlineMedium
+                    )
+                    Spacer(modifier = Modifier.height(15.dp))
+                    Text(
+                        text = "Current price: ${coin.price.smartRound()} USD",
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                    Spacer(modifier = Modifier.height(15.dp))
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        CoinPriceChange(
+                            period = "24h",
+                            percentage = coin.dailyChange,
+                            modifier = Modifier.weight(1f)
+                        )
+                        CoinPriceChange(
+                            period = "7d",
+                            percentage = coin.weeklyChange,
+                            modifier = Modifier.weight(1f)
+                        )
+                        CoinPriceChange(
+                            period = "30d",
+                            percentage = coin.monthlyChange,
+                            modifier = Modifier.weight(1f)
+                        )
+                        CoinPriceChange(
+                            period = "1y",
+                            percentage = coin.yearlyChange,
+                            modifier = Modifier.weight(1f)
+                        )
+                    }
+                    Spacer(modifier = Modifier.height(15.dp))
+                    Text(
                         text = "Tags",
                         style = MaterialTheme.typography.headlineMedium
                     )
                     Spacer(modifier = Modifier.height(15.dp))
                     FlowRow(
+                        horizontalArrangement = Arrangement.spacedBy(10.dp),
+                        verticalArrangement = Arrangement.spacedBy(10.dp),
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(10.dp)
                     ) {
                         coin.tags.forEach { tag ->
                             CoinTag(tag = tag)
