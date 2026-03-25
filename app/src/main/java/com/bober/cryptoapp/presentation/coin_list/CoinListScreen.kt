@@ -8,22 +8,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.bober.cryptoapp.presentation.Screen
 import com.bober.cryptoapp.presentation.coin_list.components.CoinListItem
 
 @Composable
 fun CoinListScreen(
-    navController: NavController,
-    viewModel: CoinListViewModel = hiltViewModel()
-){
+    navController: NavController, viewModel: CoinListViewModel = hiltViewModel()
+) {
     val state = viewModel.state.value
     Box(modifier = Modifier.fillMaxSize()) {
         LazyColumn(
             Modifier.fillMaxSize()
         ) {
-            items(state.coins){ coin ->
-                CoinListItem(coin = coin) {
-                    //TODO
-                }
+            items(state.coins) { coin ->
+                CoinListItem(coin = coin, onItemClick = {
+                    navController.navigate(Screen.CoinDetailScreen.route + "/${coin.id}")
+                })
             }
         }
     }
