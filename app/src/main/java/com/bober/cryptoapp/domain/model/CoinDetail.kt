@@ -1,7 +1,5 @@
 package com.bober.cryptoapp.domain.model
 
-import com.bober.cryptoapp.data.remote.dto.TeamMember
-
 data class CoinDetail(
     val coinId: String,
     val name: String,

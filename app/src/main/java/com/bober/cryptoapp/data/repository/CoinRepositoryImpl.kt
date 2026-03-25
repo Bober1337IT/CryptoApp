@@ -3,9 +3,9 @@ package com.bober.cryptoapp.data.repository
 import com.bober.cryptoapp.common.roundTo2Decimals
 import com.bober.cryptoapp.common.smartRound
 import com.bober.cryptoapp.data.remote.CoinPaprikaApi
-import com.bober.cryptoapp.data.remote.dto.CoinDetailDto
 import com.bober.cryptoapp.data.remote.dto.CoinDto
 import com.bober.cryptoapp.data.remote.dto.toCoinDetail
+import com.bober.cryptoapp.domain.model.CoinDetail
 import com.bober.cryptoapp.domain.repository.CoinRepository
 import javax.inject.Inject
 
@@ -16,7 +16,7 @@ class CoinRepositoryImpl @Inject constructor(
         return api.getCoins()
     }
 
-    override suspend fun getCoinById(coinId: String): CoinDetailDto {
+    override suspend fun getCoinById(coinId: String): CoinDetail {
         val detailDto = api.getCoinById(coinId)
         val priceDto = api.getCoinPriceById(coinId)
         val coinDetail = priceDto.toCoinDetail(detailDto.toCoinDetail())
@@ -24,6 +24,6 @@ class CoinRepositoryImpl @Inject constructor(
         // Log to check if api works:
         println("DEBUG_CRYPTO: Price for ${coinDetail.name} is ${coinDetail.price.smartRound()} USD adn weekly change is ${coinDetail.weeklyChange.roundTo2Decimals()}%")
 
-        return detailDto
+        return priceDto.toCoinDetail(detailDto.toCoinDetail())
     }
 }
