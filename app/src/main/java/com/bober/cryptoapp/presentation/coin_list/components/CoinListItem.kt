@@ -2,6 +2,8 @@ package com.bober.cryptoapp.presentation.coin_list.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -30,12 +32,15 @@ fun CoinListItem(
         Text(
             text = "${coin.rank}. ${coin.name} (${coin.symbol})",
             overflow = TextOverflow.Ellipsis,
+            modifier = Modifier.weight(8f)
         )
+
         Text(
             text = if(coin.isActive) "active" else "inactive",
             color = if(coin.isActive) Color.Green else Color.Red,
             fontStyle = FontStyle.Italic,
-            textAlign = TextAlign.End
+            textAlign = TextAlign.End,
+            modifier = Modifier.weight(2f)
         )
     }
 }
