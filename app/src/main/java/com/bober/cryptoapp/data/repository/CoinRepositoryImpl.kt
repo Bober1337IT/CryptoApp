@@ -1,6 +1,8 @@
 package com.bober.cryptoapp.data.repository
 
 import com.bober.cryptoapp.data.remote.CoinPaprikaApi
+import com.bober.cryptoapp.data.remote.dto.toCoin
+import com.bober.cryptoapp.data.remote.dto.toCoinDetail
 import com.bober.cryptoapp.domain.model.Coin
 import com.bober.cryptoapp.domain.model.CoinDetail
 import com.bober.cryptoapp.domain.repository.CoinRepository
