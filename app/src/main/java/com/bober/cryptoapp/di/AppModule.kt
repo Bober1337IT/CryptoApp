@@ -34,7 +34,7 @@ object AppModule {
     // Provides the Repository. We return the interface (CoinRepository)
     // but the actual implementation is CoinRepositoryImpl
     fun provideCoinRepository(api: CoinPaprikaApi): CoinRepository {
-        //return CoinRepositoryImpl(api)
-        return FakeCoinRepository()
+        return CoinRepositoryImpl(api)
+        //return FakeCoinRepository()
     }
 }
