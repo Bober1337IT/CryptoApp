@@ -37,7 +37,7 @@ data class CoinDetailDto(
     val startedAt: String,
     val symbol: String,
     val tags: List<Tag>?,
-    val team: List<TeamMember>?,
+    val team: List<TeamMemberDto>?,
     val type: String,
     val whitepaper: Whitepaper
 )
@@ -51,6 +51,6 @@ fun CoinDetailDto.toCoinDetail(): CoinDetail {
         rank = rank,
         isActive = isActive,
         tags = tags?.map { it.name } ?: emptyList(),
-        team = team?: emptyList()
+        team = team?.map {it.toTeamMember()} ?: emptyList()
     )
 }

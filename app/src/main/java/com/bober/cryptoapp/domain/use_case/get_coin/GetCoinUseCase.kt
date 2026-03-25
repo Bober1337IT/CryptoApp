@@ -1,7 +1,6 @@
 package com.bober.cryptoapp.domain.use_case.get_coin
 
 import com.bober.cryptoapp.common.Resource
-import com.bober.cryptoapp.data.remote.dto.toCoinDetail
 import com.bober.cryptoapp.domain.model.CoinDetail
 import com.bober.cryptoapp.domain.repository.CoinRepository
 import kotlinx.coroutines.flow.Flow
@@ -16,7 +15,7 @@ class GetCoinUseCase @Inject constructor(
     operator fun invoke(coinId: String): Flow<Resource<CoinDetail>> = flow {
         try {
             emit(Resource.Loading())
-            val coin = repository.getCoinById(coinId).toCoinDetail()
+            val coin = repository.getCoinById(coinId)
             emit(Resource.Success(coin))
         } catch(e: HttpException) {
             emit(Resource.Error(e.localizedMessage ?: "An unexpected error occured"))

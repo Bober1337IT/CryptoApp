@@ -1,4 +1,4 @@
-package com.bober.cryptoapp.data.remote.dto
+package com.bober.cryptoapp.domain.model
 
 data class TeamMember(
     val id: String,

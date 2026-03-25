@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
-import com.bober.cryptoapp.data.remote.dto.TeamMember
+import com.bober.cryptoapp.domain.model.TeamMember
 
 @Composable
 fun TeamListItem(
